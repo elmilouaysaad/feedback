@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { AdminLogin } from '@/app/components/AdminLogin';
 import { EventManager } from '@/app/components/EventManager';
 import { AnalyticsSimpleView } from '@/app/components/AnalyticsSimpleView';
+import { PasswordManagement } from '@/app/components/PasswordManagement';
 import { Copy, Link2, LogOut, ShieldCheck, TabletSmartphone } from 'lucide-react';
 import type { Event, EventStats, TabletAssignment } from '@/app/lib/db';
 
@@ -383,6 +384,7 @@ export default function AdminPage() {
             </div>
           </div>
 
+          <PasswordManagement />
         </div>
       </div>
 

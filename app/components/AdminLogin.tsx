@@ -53,11 +53,9 @@ export function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
 
         <div className="mb-6 text-center">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600">
-            <Sparkles className="h-3.5 w-3.5" />
             Secure Admin Access
           </div>
           <h1 className="text-3xl font-semibold tracking-tight text-slate-900">Admin Dashboard</h1>
-          <p className="mt-2 text-sm leading-6 text-slate-600">Enter the password that matches your current `.env.local` setup.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -93,11 +91,7 @@ export function AdminLogin({ onLoginSuccess }: AdminLoginProps) {
           </button>
         </form>
 
-        <div className="mt-6 rounded-2xl bg-slate-50 px-4 py-3 text-center text-xs leading-5 text-slate-500">
-          If <span className="font-medium text-slate-700">ADMIN_PASSWORD_HASH</span> is set, use the matching plaintext password.
-          <br />
-          Otherwise the development password is <span className="font-semibold text-slate-700">admin123</span>.
-        </div>
+        
       </div>
     </div>
   );

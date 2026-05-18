@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { getPasswordHash } from './password-file';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-key-change-in-production';
 const DEFAULT_ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin123';
@@ -45,7 +46,8 @@ export function getAdminPasswordHash(password: string): Promise<string> {
 
 // Verify admin login
 export async function verifyAdminLogin(password: string): Promise<boolean> {
-  const adminHash = process.env.ADMIN_PASSWORD_HASH?.trim();
+  // Try to get password hash from file first, then fall back to env var
+  const adminHash = await getPasswordHash();
 
   if (adminHash && isBcryptHash(adminHash) && !isPlaceholderHash(adminHash)) {
     return verifyPassword(password, adminHash);
